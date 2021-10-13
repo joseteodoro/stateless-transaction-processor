@@ -1,0 +1,52 @@
+{
+  "name": "CreepyEmptyScales",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint ./api ./server ./config --ext .json --ext .js --fix",
+    "test": "mocha --require \"tests/helpers\" \"tests/**/*@(.spec.js)\" --timeout 5000",
+    "test:cover": "rm -rf api/*/lcov-report; rm -rf api/*/out; rm -rf api/*/lcov.info; nyc npm test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "ramda": "^0.27.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-watch": "^3.1.4",
+    "mocha": "^5.2.0",
+    "nyc": "^14.1.1",
+    "sinon": "^6.1.4",
+    "sinon-chai": "^3.0.0"
+  },
+  "nyc": {
+    "all": true,
+    "instrument": true,
+    "extension": [
+      "js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "exclude": [
+      "tests/**",
+      "src/*/out/**/*",
+      "src/index.js",
+      "src/*/lcov-report/**/*",
+      "coverage",
+      "test.js"
+    ]
+  }
+}
